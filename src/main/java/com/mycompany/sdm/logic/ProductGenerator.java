@@ -22,8 +22,11 @@ public class ProductGenerator implements IProperties {
         List<Product> products = new ArrayList<>();
 
         int type = 0;
-        for (Enum[] e : map.keySet()) {
-            products.addAll(generateProductByType(type, e, map.get(e)));
+        for (Map.Entry<Enum[], Integer> entry : map.entrySet()) {
+            Enum[] key = entry.getKey();
+            int value = entry.getValue();
+
+            products.addAll(generateProductByType(type, key, value));
             type++;
         }
 
