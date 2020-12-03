@@ -1,8 +1,17 @@
-package com.mycompany.sdm.dto;
+package com.mycompany.sdm.interfaces;
 
+import com.mycompany.sdm.model.Properties;
 import java.util.Map;
 
 public interface IProperties {
+
+    /* Produkttypen */
+    public enum ProductTypes {
+        KAESE,
+        WEIN,
+        AEPFEL,
+        REST
+    }
 
     /* Produktbezeichnungen */
     public enum Cheeses {
@@ -52,10 +61,12 @@ public interface IProperties {
     bestBeforeMax;
     priceMin;
     priceMax;
+    qualityMain;
+    qualityMax
      */
-    final Map<Integer, Properties> PROPS = Map.of(
-            0, new Properties(5, 30, 100, 1000), // Käse
-            1, new Properties(30, 365, 300, 5000), // Wein
-            2, new Properties(14, 28, 100, 400) // Äpfel
+    final Map<ProductTypes, Properties> PROPS = Map.of(
+            ProductTypes.KAESE, new Properties(50, 100, 100, 1000, 1, 100),
+            ProductTypes.WEIN, new Properties(30, 365, 300, 5000, 1, 50),
+            ProductTypes.AEPFEL, new Properties(14, 28, 100, 400, 1, 100)
     );
 }

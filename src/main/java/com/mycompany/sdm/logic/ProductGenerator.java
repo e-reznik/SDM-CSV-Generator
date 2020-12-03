@@ -1,7 +1,7 @@
 package com.mycompany.sdm.logic;
 
 import java.util.Random;
-import com.mycompany.sdm.dto.Product;
+import com.mycompany.sdm.model.Product;
 import com.opencsv.bean.StatefulBeanToCsv;
 import com.opencsv.bean.StatefulBeanToCsvBuilder;
 import com.opencsv.exceptions.CsvDataTypeMismatchException;
@@ -11,23 +11,23 @@ import java.io.IOException;
 import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
-import com.mycompany.sdm.dto.IProperties;
-import java.util.Map;
+import com.mycompany.sdm.interfaces.IProperties;
+import com.mycompany.sdm.model.ProductList;
 
 public class ProductGenerator implements IProperties {
 
     private final Random rand = new Random();
 
-    public void generate(Map<Enum[], Integer> map, String path) throws IOException, CsvDataTypeMismatchException, CsvRequiredFieldEmptyException {
+    public void generate(List<ProductList> list, String path) throws IOException,
+            CsvDataTypeMismatchException, CsvRequiredFieldEmptyException {
         List<Product> products = new ArrayList<>();
 
-        int type = 0;
-        for (Map.Entry<Enum[], Integer> entry : map.entrySet()) {
-            Enum[] key = entry.getKey();
-            int value = entry.getValue();
+        for (ProductList pl : list) {
+            ProductTypes p = pl.getP();
+            Enum[] e = pl.getE();
+            int num = pl.getNum();
 
-            products.addAll(generateProductByType(type, key, value));
-            type++;
+            products.addAll(generateProductByType(p, e, num));
         }
 
         writeCsv(path, products);
@@ -41,19 +41,18 @@ public class ProductGenerator implements IProperties {
      * @param num Gewünschte Anzahl der zufälligen Produkte
      * @return Liste mit den generierten Produkten
      */
-    private List<Product> generateProductByType(int type, Enum[] title, int num) {
-        List<Product> p = new ArrayList<>();
+    private List<Product> generateProductByType(ProductTypes pt, Enum[] title, int num) {
+        List<Product> products = new ArrayList<>();
         for (int i = 0; i < num; i++) {
 
-            int bestBefore = getRandom(rand, PROPS.get(type).getBestBeforeMin(), PROPS.get(type).getBestBeforeMax());
-            int price = getRandom(rand, PROPS.get(type).getPriceMin(), PROPS.get(type).getPriceMax());
-            // Qualität ist minimum 90. Was Geringeres kommt mir nicht in die (Einkaufs-)Tüte.
-            int quality = getRandom(rand, 90, 100);
+            int bestBefore = getRandom(rand, PROPS.get(pt).getBestBeforeMin(), PROPS.get(pt).getBestBeforeMax());
+            int price = getRandom(rand, PROPS.get(pt).getPriceMin(), PROPS.get(pt).getPriceMax());
+            int quality = getRandom(rand, PROPS.get(pt).getQualityMin(), PROPS.get(pt).getQualityMax());
 
             int rnd = rand.nextInt(title.length);
-            p.add(new Product(type, title[rnd].name(), quality, bestBefore, price));
+            products.add(new Product(pt, title[rnd].name(), quality, bestBefore, price));
         }
-        return p;
+        return products;
     }
 
     /**
@@ -69,6 +68,7 @@ public class ProductGenerator implements IProperties {
         try (Writer writer = new FileWriter(path)) {
             StatefulBeanToCsv sbc = new StatefulBeanToCsvBuilder<List<Product>>(writer)
                     .withSeparator(com.opencsv.ICSVWriter.DEFAULT_SEPARATOR)
+                    .withQuotechar(com.opencsv.ICSVWriter.NO_QUOTE_CHARACTER)
                     .build();
 
             sbc.write(products);

@@ -1,4 +1,4 @@
-package com.mycompany.sdm.dto;
+package com.mycompany.sdm.model;
 
 public class Properties {
 
@@ -8,11 +8,16 @@ public class Properties {
     private int priceMin;
     private int priceMax;
 
-    public Properties(int bestBeforeMin, int bestBeforeMax, int priceMin, int priceMax) {
+    private int qualityMin;
+    private int qualityMax;
+
+    public Properties(int bestBeforeMin, int bestBeforeMax, int priceMin, int priceMax, int qualityMin, int qualityMax) {
         this.bestBeforeMin = bestBeforeMin;
         this.bestBeforeMax = bestBeforeMax;
         this.priceMin = priceMin;
         this.priceMax = priceMax;
+        this.qualityMin = qualityMin;
+        this.qualityMax = qualityMax;
     }
 
     public int getBestBeforeMin() {
@@ -45,6 +50,22 @@ public class Properties {
 
     public void setPriceMax(int priceMax) {
         this.priceMax = priceMax;
+    }
+
+    public int getQualityMin() {
+        return qualityMin;
+    }
+
+    public void setQualityMin(int qualityMin) {
+        this.qualityMin = qualityMin;
+    }
+
+    public int getQualityMax() {
+        return qualityMax;
+    }
+
+    public void setQualityMax(int qualityMax) {
+        this.qualityMax = qualityMax;
     }
 
 }
