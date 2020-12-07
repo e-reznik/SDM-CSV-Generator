@@ -1,6 +1,6 @@
-package com.mycompany.sdm.model;
+package com.mycompany.sdmcsvgenerator.model;
 
-import com.mycompany.sdm.interfaces.IProperties;
+import com.mycompany.sdmcsvgenerator.interfaces.IProperties;
 
 public class ProductList implements IProperties {
 

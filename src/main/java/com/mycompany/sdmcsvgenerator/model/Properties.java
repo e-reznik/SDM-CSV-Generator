@@ -1,4 +1,4 @@
-package com.mycompany.sdm.model;
+package com.mycompany.sdmcsvgenerator.model;
 
 public class Properties {
 

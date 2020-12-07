@@ -1,6 +1,6 @@
-package com.mycompany.sdm.interfaces;
+package com.mycompany.sdmcsvgenerator.interfaces;
 
-import com.mycompany.sdm.model.Properties;
+import com.mycompany.sdmcsvgenerator.model.Properties;
 import java.util.Map;
 
 public interface IProperties {

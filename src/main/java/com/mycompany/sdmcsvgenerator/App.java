@@ -1,9 +1,9 @@
-package com.mycompany.sdm;
+package com.mycompany.sdmcsvgenerator;
 
-import com.mycompany.sdm.interfaces.IProperties;
-import com.mycompany.sdm.logic.ProductGenerator;
-import com.mycompany.sdm.interfaces.IProperties.Cheeses;
-import com.mycompany.sdm.model.ProductList;
+import com.mycompany.sdmcsvgenerator.interfaces.IProperties;
+import com.mycompany.sdmcsvgenerator.logic.ProductGenerator;
+import com.mycompany.sdmcsvgenerator.interfaces.IProperties.Cheeses;
+import com.mycompany.sdmcsvgenerator.model.ProductList;
 import com.opencsv.exceptions.CsvDataTypeMismatchException;
 import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
 import java.io.IOException;

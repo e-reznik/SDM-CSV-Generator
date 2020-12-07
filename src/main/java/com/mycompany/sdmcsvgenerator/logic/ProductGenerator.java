@@ -1,7 +1,7 @@
-package com.mycompany.sdm.logic;
+package com.mycompany.sdmcsvgenerator.logic;
 
 import java.util.Random;
-import com.mycompany.sdm.model.Product;
+import com.mycompany.sdmcsvgenerator.model.Product;
 import com.opencsv.bean.StatefulBeanToCsv;
 import com.opencsv.bean.StatefulBeanToCsvBuilder;
 import com.opencsv.exceptions.CsvDataTypeMismatchException;
@@ -11,8 +11,8 @@ import java.io.IOException;
 import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
-import com.mycompany.sdm.interfaces.IProperties;
-import com.mycompany.sdm.model.ProductList;
+import com.mycompany.sdmcsvgenerator.interfaces.IProperties;
+import com.mycompany.sdmcsvgenerator.model.ProductList;
 
 public class ProductGenerator implements IProperties {
 
