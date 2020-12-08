@@ -18,17 +18,30 @@ public class ProductGenerator implements IProperties {
 
     private final Random rand = new Random();
 
+    /**
+     * Generierung einer CSV mit Beispieldaten von Produkten mit vordefinierten
+     * Bereichen.
+     *
+     * @param list Liste mit den Produkten und deren vordefinierten Bereichen
+     * @param path Pfad, wo die zu erstellende CSV abgelegt wird
+     * @throws IOException falls der Pfad nicht existiert
+     * @throws CsvDataTypeMismatchException der für die Konvertierung angegebene
+     * Zeichenfolgenwert kann nicht in den erforderlichen Typ des Zielfelds
+     * konvertiert werden
+     * @throws CsvRequiredFieldEmptyException ein als erforderlich markiertes
+     * Feld in der CSV-Datei ist leer
+     */
     public void generate(List<ProductList> list, String path) throws IOException,
             CsvDataTypeMismatchException, CsvRequiredFieldEmptyException {
         List<Product> products = new ArrayList<>();
 
-        for (ProductList pl : list) {
+        list.forEach(pl -> {
             ProductTypes p = pl.getP();
             Enum[] e = pl.getE();
             int num = pl.getNum();
 
             products.addAll(generateProductByType(p, e, num));
-        }
+        });
 
         writeCsv(path, products);
     }
@@ -60,9 +73,12 @@ public class ProductGenerator implements IProperties {
      *
      * @param path Pfad, wo die CSV abgelegt werden soll
      * @param products Liste der Produkte
-     * @throws IOException
-     * @throws CsvDataTypeMismatchException
-     * @throws CsvRequiredFieldEmptyException
+     * @throws IOException falls der Pfad nicht existiert
+     * @throws CsvDataTypeMismatchException der für die Konvertierung angegebene
+     * Zeichenfolgenwert kann nicht in den erforderlichen Typ des Zielfelds
+     * konvertiert werden
+     * @throws CsvRequiredFieldEmptyException ein als erforderlich markiertes
+     * Feld in der CSV-Datei ist leer
      */
     private void writeCsv(String path, List<Product> products) throws IOException, CsvDataTypeMismatchException, CsvRequiredFieldEmptyException {
         try (Writer writer = new FileWriter(path)) {
@@ -81,7 +97,7 @@ public class ProductGenerator implements IProperties {
      * @param rand Random Objekt
      * @param min der untere Wert des Bereichs
      * @param max der oberen Wert des Bereichs
-     * @return die Zufallszahl
+     * @return die generierte Zufallszahl
      */
     private int getRandom(Random rand, int min, int max) {
         // max ist exklusiv (wird nicht mitgezählt), sodass max+1 gerechnet wird
