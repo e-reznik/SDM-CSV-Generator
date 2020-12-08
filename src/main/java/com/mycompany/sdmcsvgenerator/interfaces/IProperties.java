@@ -65,7 +65,7 @@ public interface IProperties {
     qualityMax
      */
     final Map<ProductTypes, Properties> PROPS = Map.of(
-            ProductTypes.KAESE, new Properties(50, 100, 100, 1000, 1, 100),
+            ProductTypes.KAESE, new Properties(10, 100, 100, 1000, 1, 100),
             ProductTypes.WEIN, new Properties(30, 365, 300, 5000, 1, 50),
             ProductTypes.AEPFEL, new Properties(14, 28, 100, 400, 1, 100)
     );
