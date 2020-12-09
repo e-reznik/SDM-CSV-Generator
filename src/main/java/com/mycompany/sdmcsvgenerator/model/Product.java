@@ -1,8 +1,8 @@
 package com.mycompany.sdmcsvgenerator.model;
 
-import com.mycompany.sdmcsvgenerator.interfaces.IProperties;
+import com.mycompany.sdmcsvgenerator.interfaces.Properties;
 
-public class Product implements IProperties {
+public class Product implements Properties {
 
     private ProductTypes type;
     private String title;

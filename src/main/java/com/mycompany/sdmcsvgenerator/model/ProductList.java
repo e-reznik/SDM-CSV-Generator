@@ -1,8 +1,8 @@
 package com.mycompany.sdmcsvgenerator.model;
 
-import com.mycompany.sdmcsvgenerator.interfaces.IProperties;
+import com.mycompany.sdmcsvgenerator.interfaces.Properties;
 
-public class ProductList implements IProperties {
+public class ProductList implements Properties {
 
     private final ProductTypes p;
     private final Enum[] e;

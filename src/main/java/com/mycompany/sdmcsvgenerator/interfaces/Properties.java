@@ -1,9 +1,9 @@
 package com.mycompany.sdmcsvgenerator.interfaces;
 
-import com.mycompany.sdmcsvgenerator.model.Properties;
+import com.mycompany.sdmcsvgenerator.model.ProductProperties;
 import java.util.Map;
 
-public interface IProperties {
+public interface Properties {
 
     /* Produkttypen */
     public enum ProductTypes {
@@ -64,9 +64,9 @@ public interface IProperties {
     qualityMain;
     qualityMax
      */
-    final Map<ProductTypes, Properties> PROPS = Map.of(
-            ProductTypes.KAESE, new Properties(10, 100, 100, 1000, 1, 100),
-            ProductTypes.WEIN, new Properties(30, 365, 300, 5000, 1, 50),
-            ProductTypes.AEPFEL, new Properties(14, 28, 100, 400, 1, 100)
+    final Map<ProductTypes, ProductProperties> PROPS = Map.of(
+            ProductTypes.KAESE, new ProductProperties(10, 100, 100, 1000, 1, 100),
+            ProductTypes.WEIN, new ProductProperties(30, 365, 300, 5000, 1, 50),
+            ProductTypes.AEPFEL, new ProductProperties(14, 28, 100, 400, 1, 100)
     );
 }

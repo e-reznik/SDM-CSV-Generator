@@ -1,6 +1,6 @@
 package com.mycompany.sdmcsvgenerator.model;
 
-public class Properties {
+public class ProductProperties {
 
     private int bestBeforeMin;
     private int bestBeforeMax;
@@ -11,7 +11,7 @@ public class Properties {
     private int qualityMin;
     private int qualityMax;
 
-    public Properties(int bestBeforeMin, int bestBeforeMax, int priceMin, int priceMax, int qualityMin, int qualityMax) {
+    public ProductProperties(int bestBeforeMin, int bestBeforeMax, int priceMin, int priceMax, int qualityMin, int qualityMax) {
         this.bestBeforeMin = bestBeforeMin;
         this.bestBeforeMax = bestBeforeMax;
         this.priceMin = priceMin;

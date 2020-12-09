@@ -11,10 +11,10 @@ import java.io.IOException;
 import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
-import com.mycompany.sdmcsvgenerator.interfaces.IProperties;
 import com.mycompany.sdmcsvgenerator.model.ProductList;
+import com.mycompany.sdmcsvgenerator.interfaces.Properties;
 
-public class ProductGenerator implements IProperties {
+public class ProductGenerator implements Properties {
 
     private final Random rand = new Random();
 

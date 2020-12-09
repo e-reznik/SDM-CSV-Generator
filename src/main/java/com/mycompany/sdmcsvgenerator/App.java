@@ -1,8 +1,7 @@
 package com.mycompany.sdmcsvgenerator;
 
-import com.mycompany.sdmcsvgenerator.interfaces.IProperties;
 import com.mycompany.sdmcsvgenerator.logic.ProductGenerator;
-import com.mycompany.sdmcsvgenerator.interfaces.IProperties.Cheeses;
+import com.mycompany.sdmcsvgenerator.interfaces.Properties.Cheeses;
 import com.mycompany.sdmcsvgenerator.model.ProductList;
 import com.opencsv.exceptions.CsvDataTypeMismatchException;
 import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
@@ -11,8 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import com.mycompany.sdmcsvgenerator.interfaces.Properties;
 
-public class App implements IProperties {
+public class App implements Properties {
 
     public static void main(String[] args) {
         ProductGenerator pg = new ProductGenerator();
