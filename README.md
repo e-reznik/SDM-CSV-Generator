@@ -15,6 +15,22 @@ BESTBEFORE,PRICE,QUALITY,TITLE,TYPE
 250,3509.0,42,SANGIOVESE,WEIN
 16,312.0,19,JONAGOLD,AEPFEL
 ```
+# Beispiel
+Der Generator stellt die Methode `generate()` zur verfügung, die eine Liste mit den gewünschten Produkten, sowie den Pfad, wo die CSV gespeichert werden soll, erwartet. Die möglichen Produkte sind in einem Interface hinterlegt.
+
+```java
+ProductGenerator pg = new ProductGenerator();
+List<ProductList> list = new ArrayList<>();
+int numCheeses = 10;
+int numWines = 20;
+int numApples = 5;
+
+list.add(new ProductList(ProductTypes.KAESE, Cheeses.values(), numCheeses));
+list.add(new ProductList(ProductTypes.WEIN, Wines.values(), numWines));
+list.add(new ProductList(ProductTypes.AEPFEL, Apples.values(), numApples));
+
+pg.generate(list, "/home/products.csv");
+```
 
 # Eigenschaften
 Ein Produkt hat eine Reihe von Eigenschaften, die zufällig aus vorher definierten Bereichen gewählt werden.
