@@ -16,12 +16,14 @@ public class App implements Properties {
 
     public static void main(String[] args) {
         ProductGenerator pg = new ProductGenerator();
-//        Map<Enum[], Integer> map = new HashMap<>();
         List<ProductList> list = new ArrayList<>();
+        int numCheeses = 10;
+        int numWines = 20;
+        int numApples = 5;
 
-        list.add(new ProductList(ProductTypes.KAESE, Cheeses.values(), 10));
-        list.add(new ProductList(ProductTypes.WEIN, Wines.values(), 20));
-        list.add(new ProductList(ProductTypes.AEPFEL, Apples.values(), 15));
+        list.add(new ProductList(ProductTypes.KAESE, Cheeses.values(), numCheeses));
+        list.add(new ProductList(ProductTypes.WEIN, Wines.values(), numWines));
+        list.add(new ProductList(ProductTypes.AEPFEL, Apples.values(), numApples));
 
         try {
             pg.generate(list, "/home/evgenij/products.csv");
