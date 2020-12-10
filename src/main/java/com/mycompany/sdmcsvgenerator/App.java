@@ -21,6 +21,7 @@ public class App implements Properties {
         int numWines = 20;
         int numApples = 5;
 
+        /* Typ, Mögliche Bezeichnunngen, Anzahl */
         list.add(new ProductList(ProductTypes.KAESE, Cheeses.values(), numCheeses));
         list.add(new ProductList(ProductTypes.WEIN, Wines.values(), numWines));
         list.add(new ProductList(ProductTypes.AEPFEL, Apples.values(), numApples));

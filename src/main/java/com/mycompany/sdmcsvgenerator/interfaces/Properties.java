@@ -61,7 +61,7 @@ public interface Properties {
     bestBeforeMax;
     priceMin;
     priceMax;
-    qualityMain;
+    qualityMin;
     qualityMax
      */
     final Map<ProductTypes, ProductProperties> PROPS = Map.of(

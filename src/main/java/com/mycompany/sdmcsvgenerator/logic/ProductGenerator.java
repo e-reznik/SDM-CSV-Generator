@@ -35,13 +35,13 @@ public class ProductGenerator implements Properties {
             CsvDataTypeMismatchException, CsvRequiredFieldEmptyException {
         List<Product> products = new ArrayList<>();
 
-        list.forEach(pl -> {
+        for (ProductList pl : list) {
             ProductTypes p = pl.getP();
             Enum[] e = pl.getE();
             int num = pl.getNum();
 
             products.addAll(generateProductByType(p, e, num));
-        });
+        };
 
         writeCsv(path, products);
     }
