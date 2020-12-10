@@ -34,14 +34,9 @@ pg.generate(list, "/home/products.csv");
 
 # Eigenschaften
 Ein Produkt hat eine Reihe von Eigenschaften, die zufällig aus vorher definierten Bereichen gewählt werden.
+[Eine vollständige Produktbeschreibung finden Sie hier.](https://github.com/e-reznik/SDM#produkteigenschaften)
 
-## Produkttypen
-Die Produkte können vom folgenden Typ sein:
- - Käse  (vorgegeben)
- - Wein (vorgegeben)
- - Apfel
- 
-Dabei gibt es für jeden Produkttypen eine Reihe von möglichen Bezeichnungen:
+Für jeden Produkttypen gibt es eine Reihe von möglichen Bezeichnungen:
 
  - Käse
    - BERGKAESE
@@ -57,11 +52,5 @@ Dabei gibt es für jeden Produkttypen eine Reihe von möglichen Bezeichnungen:
    - GRANNY_SMITH
    - ELSTAR
    - BOSKOP
-
-##  Kriterien
-Weiterhin hat ein Produkt die folgenden Kriterien
- - MHD (Mindesthaltbarkeitsdatum in Tagen)
- - Preis (in Cent)
- - Qualität
  
- Wobei für jeden Produkttypen individuelle Kriterienbereiche definiert wurden. Beispielsweise wird das MHD beim Käse zufällig aus einem Bereich von 10 bis 100 Tagen ausgewählt, während es beim Wein zwischen 30 und 365 Tagen betragen kann.
+Die weiteren Produkteigenschaften werden zufällig aus den vorher individuell festgelegten Bereichen ausgewählt.
