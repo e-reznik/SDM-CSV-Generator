@@ -41,7 +41,7 @@ public class ProductGenerator implements Properties {
             int num = pl.getNum();
 
             products.addAll(generateProductByType(p, e, num));
-        };
+        }
 
         writeCsv(path, products);
     }
